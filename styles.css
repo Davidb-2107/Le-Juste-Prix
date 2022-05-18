@@ -9,6 +9,12 @@ header {
   font-size: 3em;
 }
 
+button.btn.btn-primary {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+
 #instructions {
   color: white;
 }

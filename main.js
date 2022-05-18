@@ -1,28 +1,34 @@
 // Etape 1 - Sélectionner nos éléments
-let input = document.querySelector("#prix");
-let erreur = document.querySelector("small");
-let formulaire = document.querySelector("#formulaire");
-let instructions = document.querySelector("#instructions");
+const input         = document.querySelector("#prix");
+const erreur        = document.querySelector("small");
+const formulaire    = document.querySelector("#formulaire");
+const instructions  = document.querySelector("#instructions");
+const relancer      = document.querySelector("#relancer");
+
+
 
 //****Créer les variables****
 let coups = 0;
 let nombreChoisi;
 
 
-//***Fonction****Créer la fonction vérifier
+//***Fonction****
+//Créer la fonction vérifier
+  
 function verifier(nombre) {
   let instruction = document.createElement("div"); //créer un div
   
+  //C'est plus
   if (nombre < nombreAleatoire) {
     instruction.textContent = `#${coups} ${nombre} C'est plus`;
     instruction.classList.add("plus", "instruction");
     
-    
+  //C'est moins  
   } else if (nombre > nombreAleatoire) {
     instruction.textContent = `#${coups} ${nombre} C'est moins`;
     instruction.className = "instruction moins";
    
-  
+  //Met fin au jeux 
   } else {
     instruction.textContent = `#${coups} ${nombre} C'est gagné`;
     instruction.className = "instruction fini";
@@ -61,7 +67,6 @@ formulaire.addEventListener("submit", (e) => {
     formulaire.style.borderColor = "silver";
     coups++;
     nombreChoisi = input.value;
-    //console.log(nombreChoisi, coups);
     input.value = ""; //vider le champ de formulaire
     verifier(nombreChoisi);
     
@@ -69,3 +74,7 @@ formulaire.addEventListener("submit", (e) => {
 });
 
 
+// Relancer le jeu
+relancer.addEventListener("click", (e) => {
+  input.disabled = false;
+});
