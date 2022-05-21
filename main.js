@@ -4,7 +4,7 @@ const erreur        = document.querySelector("small");
 const formulaire    = document.querySelector("#formulaire");
 const instructions  = document.querySelector("#instructions");
 const relancer      = document.querySelector("#relancer");
-
+let instruction;     
 
 
 //****Créer les variables****
@@ -16,7 +16,9 @@ let nombreChoisi;
 //Créer la fonction vérifier
   
 function verifier(nombre) {
-  let instruction = document.createElement("div"); //créer un div
+  //Create a div
+  instruction = document.createElement("div"); //créer un div
+  instruction.setAttribute("id","resultat");
   
   //C'est plus
   if (nombre < nombreAleatoire) {
@@ -32,16 +34,17 @@ function verifier(nombre) {
   } else {
     instruction.textContent = `#${coups} ${nombre} C'est gagné`;
     instruction.className = "instruction fini";
-    instructions.prepend(instruction);
     input.disabled = true;
   }
   
+  //Add the div to the document
   instructions.prepend(instruction);
   
 }
 
 
-// Etape 2 - Cacher l'erreur
+// Etape 2 - Cacher le message
+//"Vous devez rentrer un nombre"
 erreur.style.display = "none";
 
 // Etape 3 - Générer un nombre aléatoire
@@ -77,4 +80,9 @@ formulaire.addEventListener("submit", (e) => {
 // Relancer le jeu
 relancer.addEventListener("click", (e) => {
   input.disabled = false;
+  let element = document.querySelectorAll("#resultat");
+element.forEach( e => {
+  e.remove();
+})
+  
 });
