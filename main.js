@@ -3,8 +3,7 @@ const input         = document.querySelector("#prix");
 const erreur        = document.querySelector("small");
 const formulaire    = document.querySelector("#formulaire");
 const instructions  = document.querySelector("#instructions");
-const relancer      = document.querySelector("#relancer");
-let instruction;     
+const relancer      = document.querySelector("#relancer");  
 
 
 //****Créer les variables****
@@ -13,12 +12,12 @@ let nombreChoisi;
 
 
 //***Fonction****
-//Créer la fonction vérifier
+//Créer la fonction qui permet de vérifier si le nombreChoisi = ou < ou > que nombreAleatoire
   
 function verifier(nombre) {
   //Create a div
-  instruction = document.createElement("div"); //créer un div
-  instruction.setAttribute("id","resultat");
+  let instruction = document.createElement("div"); //CREER un div
+  instruction.setAttribute("id","resultat"); //AJOUTER un id "resultat" au div
   
   //C'est plus
   if (nombre < nombreAleatoire) {
