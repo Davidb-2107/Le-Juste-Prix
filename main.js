@@ -1,7 +1,7 @@
 // Etape 1 - Sélectionner nos éléments
 const input         = document.querySelector("#prix");
 const erreur        = document.querySelector("small");
-const formulaire    = document.querySelector("#formulaire");
+const formulaire    = document.querySelector(`["name=formulaire"]`);
 const instructions  = document.querySelector("#instructions");
 const relancer      = document.querySelector("#relancer");  
 
